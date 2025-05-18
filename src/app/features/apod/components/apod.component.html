@@ -1,0 +1,51 @@
+<div class="apod-container">
+  <ng-container *ngIf="!loading && !errorMessage; else loadingOrError">
+    <div class="image-title">
+      {{ apodData?.title }}
+    </div>
+    <p class="date">{{ apodData?.date }}</p>
+    <div *ngIf="apodData?.media_type === 'image' && !imageError">
+      <img
+        [src]="apodData?.url"
+        [alt]="apodData?.title"
+        (error)="onImageError()"
+        style="max-width: 100%; height: auto"
+      />
+    </div>
+    <div
+      *ngIf="
+        (apodData?.media_type === 'video' ||
+          apodData?.media_type === 'other') &&
+        safeVideoUrl
+      "
+    >
+      <iframe
+        width="560"
+        height="315"
+        [src]="safeVideoUrl"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      >
+      </iframe>
+    </div>
+    <div class="description">
+      {{ apodData?.explanation }}
+    </div>
+    <p *ngIf="apodData?.copyright" class="copyright">
+      &copy; {{ apodData?.copyright }}
+    </p>
+  </ng-container>
+
+  <ng-template #loadingOrError>
+    <div class="message-container">
+      <div *ngIf="errorMessage" class="error-message">
+        <p>{{ errorMessage }}</p>
+        <button (click)="retryLoading()">Try Again</button>
+      </div>
+      <div *ngIf="loading" class="loading-message">
+        <p>Loading data...</p>
+      </div>
+    </div>
+  </ng-template>
+</div>

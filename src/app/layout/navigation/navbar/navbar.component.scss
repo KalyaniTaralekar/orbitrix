@@ -1,5 +1,4 @@
 .navbar {
-  background-color: #3e4768;
   display: flex;
   align-items: center;
   .navbar-header {
@@ -11,12 +10,18 @@
   .navbar-title {
     font-size: 20px;
     font-weight: 600;
-    margin-left: 12px;
     font-family: "Open Sans", sans-serif;
   }
   .navbar-logo {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
+    font-size: 1.4rem;
+    width: 2.2rem;
+    display: inline-flex;
+    align-items: center;
+    height: 2.2rem;
+    vertical-align: middle;
+
     margin-left: 50px;
   }
   .navbar-menu {
