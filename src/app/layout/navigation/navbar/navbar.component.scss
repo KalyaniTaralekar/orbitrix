@@ -1,0 +1,34 @@
+.navbar {
+  background-color: #3e4768;
+  display: flex;
+  align-items: center;
+  .navbar-header {
+    display: flex;
+    color: white;
+    align-items: center;
+    margin-left: 20px;
+  }
+  .navbar-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 12px;
+    font-family: "Open Sans", sans-serif;
+  }
+  .navbar-logo {
+    width: 20px;
+    height: 20px;
+    margin-left: 50px;
+  }
+  .navbar-menu {
+    display: flex;
+    font-family: "Open Sans", sans-serif;
+    align-items: center;
+    position: absolute;
+    right: 70px;
+    a {
+      color: white;
+      text-decoration: none;
+      margin-left: 70px;
+    }
+  }
+}
