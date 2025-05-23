@@ -1,0 +1,20 @@
+<div class="mars-gallery-container">
+    <div class="mars-gallery-header">
+        <h1 class="mars-gallery-title">Mars Gallery</h1>
+    </div>
+  <form [formGroup]="filterForm" class="mars-form">
+    <div class="form-control">
+      <label for="date" class="form-label">Select Date : </label>
+      <input type="date" formControlName="date" />
+    </div>
+    <div class="form-control">
+        <label for="camera" class="form-label">Select Camera : </label>
+        <select name="camera" id="camera">
+            <option *ngFor="let camera of cameras" [value]="camera.value">
+                {{ camera.label }}
+            </option>
+        </select>
+    </div>
+    <button type="button" class="search-button">Search</button>
+  </form>
+</div>

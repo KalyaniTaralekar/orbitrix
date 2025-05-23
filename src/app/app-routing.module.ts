@@ -18,6 +18,11 @@ const routes: Routes = [
         loadChildren: () =>
           import('./features/apod/apod.module').then((m) => m.ApodModule),
       },
+      {
+        path: 'mars',
+        loadChildren: () =>
+          import('./features/mars/mars.module').then((m) => m.MarsModule),
+      },
     ],
   },
 ];
