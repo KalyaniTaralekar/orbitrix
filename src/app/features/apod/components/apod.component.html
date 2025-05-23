@@ -4,7 +4,7 @@
       {{ apodData?.title }}
     </div>
     <p class="date">{{ apodData?.date }}</p>
-    <div *ngIf="apodData?.media_type === 'image' && !imageError">
+    <div class="apod-image" *ngIf="apodData?.media_type === 'image' && !imageError">
       <img
         [src]="apodData?.url"
         [alt]="apodData?.title"
