@@ -1,0 +1,42 @@
+.polaroid {
+  color: white;
+  width: 300px;
+  
+}
+.mars-photo-container {
+    width: 90vw;
+    height: auto;
+    position: relative;
+    align-items: center;
+    background-color: rgba(192, 192, 192, 0.1); // more transparent silver
+    margin: 23px;
+    // top: 30px;
+    left: 0;
+    max-width: 1300px;
+    padding: 0 1rem;
+    border-radius: 8px;
+    font-family: "Open Sans", sans-serif;
+}
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 0.5rem;
+    padding: 3rem 1rem 3rem 4rem;
+}
+.photo {
+  height: 300px;
+  width: 300px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.gallery-title {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  text-decoration: underline;
+  font-weight: bold;
+  margin: 2rem 0 1rem 0;
+  text-align: center;
+}

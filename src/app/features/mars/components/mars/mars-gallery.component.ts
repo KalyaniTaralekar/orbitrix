@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { MarsPhoto } from '../../models/mars-gallery.model';
+import { MarsService } from '../../services/mars.service';
 
 @Component({
   selector: 'app-mars-gallery',
@@ -8,30 +10,48 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class MarsGalleryComponent implements OnInit {
   filterForm: FormGroup;
-  cameras = [
-    { label: 'Front Hazard Avoidance Camera', value: 'FHAZ' },
-    { label: 'Rear Hazard Avoidance Camera', value: 'RHAZ' },
-    { label: 'Navigation Camera', value: 'NAVCAM' },
-    { label: 'Mast Camera', value: 'MAST' },
-    { label: 'Chemistry and Camera Complex', value: 'CHEMCAM' },
-    { label: 'Mars Hand Lens Imager', value: 'MAHLI' },
-    { label: 'Mars Descent Imager', value: 'MARDI' },
-    { label: 'Panoramic Camera', value: 'PANCAM' },
-    { label: 'Miniature Thermal Emission Spectrometer', value: 'MINITES' },
+  photos: MarsPhoto[] = [];
+  loading: boolean = true;
+  error: string | null = null;
+
+  rovers = [
+    'Curiosity',
+    'Opportunity',
+    'Spirit',
+    'Perseverance',
   ];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private marsService: MarsService) {
     this.filterForm = this.fb.group({
-      date: [''],
-      camera: [''],
+      rover: [''],
     });
   }
 
   ngOnInit(): void {
-    // Set default date to today
-    const today = new Date().toISOString().split('T')[0];
     this.filterForm.patchValue({
-      date: today,
+      rover: 'Perseverance',
     });
+    this.loadLatestPhotos();
+  }
+
+  loadLatestPhotos() {
+    this.loading = true;
+    this.error = null;
+    const rover = this.filterForm.get('rover')?.value;
+    this.marsService
+      .getPhotos(rover)
+      .subscribe((photos) => (this.photos = photos,
+    console.log(this.photos)
+
+      ));
+  }
+
+  onSearch() {
+    this.loading = true;
+    const rover = this.filterForm.get('rover')?.value;
+        this.marsService
+      .getPhotos(rover)
+      .subscribe((photos) => (this.photos = photos
+      ));
   }
 }

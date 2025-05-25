@@ -1,23 +1,37 @@
 <div class="mars-gallery-container">
+  <div class="mars-gallery-form">
     <div class="mars-gallery-header">
-        <h1 class="mars-gallery-title">Mars Gallery</h1>
+      <h1 class="mars-gallery-title">Mars Gallery</h1>
     </div>
-  <form [formGroup]="filterForm" class="mars-form">
-    <div class="form-control">
-      <label for="date" class="form-label">Select Date : </label>
-      <input type="date" formControlName="date" />
-    </div>
-    <div class="form-control">
-        <label for="camera" class="form-label">Select Camera : </label>
-        <select name="camera" id="camera">
-            <option *ngFor="let camera of cameras" [value]="camera.value">
-                {{ camera.label }}
-            </option>
+    <form [formGroup]="filterForm" class="mars-form">
+      <div class="form-control">
+        <label for="rover">Select Rover : </label>
+        <select id="rover" formControlName="rover">
+          <option value="" disabled selected>Choose a rover</option>
+          <option *ngFor="let rover of rovers" [value]="rover">
+            {{ rover }}
+          </option>
         </select>
+      </div>
+      <button type="button" class="search-button" (click)="onSearch()">
+        Search
+      </button>
+    </form>
+  </div>
+  <app-photo-card [photos]="photos"> </app-photo-card>
+  <!-- <div class="photos-container">
+    <div *ngIf="loading" class="loading">Loading photos...</div>
+
+    <div *ngIf="error" class="error">
+      {{ error }}
     </div>
-    <button type="button" class="search-button">Search</button>
-  </form>
-  <!-- <div class="gallery" *ngIf="photos.length">
-  <app-photo-card *ngFor="let photo of photos" [photo]="photo"></app-photo-card>
-</div> -->
+
+    <div *ngIf="!loading && !error" class="photos-grid">
+      
+    </div>
+
+    <div *ngIf="!loading && !error && photos.length === 0" class="no-results">
+      No photos found for the selected criteria.
+    </div>
+  </div> -->
 </div>

@@ -1,0 +1,13 @@
+<div class="mars-photo-container">
+  <div class="photo-grid">
+    <!-- <h2>Latest Photos</h2> -->
+    <div class="polaroid" *ngFor="let photo of photos">
+      <img [src]="photo.img_src" [alt]="photo.camera.full_name" class="photo" />
+      <div class="photo-desc">
+        <p class="camera-name">{{ photo.camera.full_name }}</p>
+        <p class="date">{{ photo.earth_date | date : "mediumDate" }}</p>
+        <p class="rover-name">{{ photo.rover.name }}</p>
+      </div>
+    </div>
+  </div>
+</div>

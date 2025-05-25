@@ -4,9 +4,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { MarsRoutingModule } from './mars-routing.module';
 import { MarsGalleryComponent } from './components/mars/mars-gallery.component';
+import { PhotoCardComponent } from './components/card/photo-card/photo-card.component';
 
 @NgModule({
-  declarations: [MarsGalleryComponent],
+  declarations: [MarsGalleryComponent, PhotoCardComponent],
   imports: [CommonModule, MarsRoutingModule, ReactiveFormsModule],
 })
 export class MarsModule {}

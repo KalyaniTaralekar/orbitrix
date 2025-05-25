@@ -1,12 +1,14 @@
-.mars-gallery-container {
-  margin-top: 20px;
+.mars-gallery-container{
+    margin-left: 70px;
+  font-family: "Open Sans", sans-serif;
+}
+.mars-gallery-form {
+  margin-top: 40px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  font-family: "Open Sans", sans-serif;
-
+}
   .mars-gallery-title {
-    margin-left: 70px;
     color: white;
     font-size: 24px;
   }
@@ -43,16 +45,6 @@
         font-size: 14px;
         transition: all 0.3s ease;
         min-width: 100px;
-
-        &:focus {
-          outline: none;
-          border-color: #0e1730;
-          box-shadow: 0 0 0 2px #0e1730;
-        }
-
-        &:hover {
-          background-color: #ffffff;
-        }
       }
 
       select {
@@ -85,4 +77,29 @@
       transition: background-color 0.3s ease;
     }
   }
-}
+
+  .photos-container {
+    margin-top: 2rem;
+    padding: 0 2rem;
+
+    .loading,
+    .error,
+    .no-results {
+      text-align: center;
+      color: white;
+      padding: 2rem;
+      font-size: 1.2rem;
+    }
+
+    .error {
+      color: #ff4444;
+    }
+
+    .photos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 2rem 0;
+    }
+  }
+

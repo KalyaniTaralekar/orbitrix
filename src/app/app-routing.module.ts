@@ -19,9 +19,16 @@ const routes: Routes = [
           import('./features/apod/apod.module').then((m) => m.ApodModule),
       },
       {
-        path: 'mars',
+        path: 'mars-gallery',
         loadChildren: () =>
           import('./features/mars/mars.module').then((m) => m.MarsModule),
+      },
+      {
+        path: 'asteroids',
+        loadChildren: () =>
+          import('./features/asteroids/asteroids.module').then(
+            (m) => m.AsteroidsModule
+          ),
       },
     ],
   },
