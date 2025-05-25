@@ -1,0 +1,37 @@
+<div class="asteroids-table-container">
+<table mat-table [dataSource]="dataSource" matSort>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="velocity">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Velocity</th>
+    <td mat-cell *matCellDef="let element"> {{element.velocity}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="size">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Size</th>
+    <td mat-cell *matCellDef="let element"> {{element.size}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="distance">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Distance</th>
+    <td mat-cell *matCellDef="let element"> {{element.distance}} </td>
+  </ng-container>
+
+    <ng-container matColumnDef="approachDate">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Approach Date </th>
+    <td mat-cell *matCellDef="let element"> {{element.approachDate}} </td>
+  </ng-container>
+
+    <ng-container matColumnDef="isHazardous">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Hazardous </th>
+    <td mat-cell *matCellDef="let element"> {{element.isHazardous}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</div>

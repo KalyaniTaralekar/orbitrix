@@ -1,0 +1,52 @@
+<div class="asteroids-container">
+  <div class="asteroid-form">
+    <div class="asteroid-header">
+      <h1 class="asteroid-title">Near Earth Asteroids</h1>
+    </div>
+    <form [formGroup]="asteroidFilterForm" class="asteroid-form">
+      <!-- start date -->
+      <div class="form-control">
+        <mat-label style="color: white">Start Date : </mat-label>
+        <mat-form-field class="small-form-field">
+          <input
+            matInput
+            [matDatepicker]="picker1"
+            placeholder="Start Date"
+            formControlName="startDate"
+            [matDatepickerFilter]="startDateFilter"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker1"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <!-- end date -->
+      <div class="form-control">
+        <mat-label style="color: white">End Date : </mat-label>
+        <mat-form-field>
+          <input
+            matInput
+            [matDatepicker]="picker2"
+            placeholder="End Date"
+            formControlName="endDate"
+            [matDatepickerFilter]="endDateFilter"
+
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker2"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <button mat-raised-button class="search-button" (click)="onSearch()">
+        Search
+      </button>
+    </form>
+  </div>
+  <div *ngIf="asteroidFeed">
+    <app-asteroids-table [asteroidFeed]="asteroidFeed"></app-asteroids-table>
+  </div>
+</div>

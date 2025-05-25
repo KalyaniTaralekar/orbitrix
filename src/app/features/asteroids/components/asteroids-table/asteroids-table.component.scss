@@ -1,0 +1,30 @@
+.asteroids-table-container {
+  width: 100vw;
+  background-color: rgba(192, 192, 192, 0.1); 
+  margin: auto;
+  margin-top: 30px;
+  max-width: 1300px;
+  padding: 0 1.5rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-family: "Open Sans", sans-serif;
+}
+.mat-mdc-table {
+  background: none;
+}
+table {
+  max-width: 80%;
+  margin: 40px 0px;
+  th,
+  td {
+    text-align: left;
+    color: white;
+    border: 1px solid white;
+    max-width: 200px;
+  }
+  tr:last-child td {
+    border-bottom: 1px solid white;
+  }
+}
