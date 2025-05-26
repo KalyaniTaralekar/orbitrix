@@ -30,6 +30,11 @@ const routes: Routes = [
             (m) => m.AsteroidsModule
           ),
       },
+      {
+        path: 'launches',
+        loadChildren: () =>
+          import('./features/events/events.module').then((m) => m.EventsModule),
+      },
     ],
   },
 ];

@@ -1,0 +1,23 @@
+<div class="asteroids-container">
+  <div class="asteroid-form">
+    <div class="asteroid-header">
+      <h1 class="asteroid-title">{{title}}</h1>
+    </div>
+    <form [formGroup]="eventsFilterForm" class="asteroid-form">
+      <div class="form-control">
+        <mat-label style="color: white">Select Launch Timeline : </mat-label>
+        <mat-form-field>
+        <mat-select formControlName="launch">
+          <mat-option *ngFor="let timeline of timelines" [value]="timeline">
+            {{ timeline }}
+          </mat-option>
+        </mat-select>
+ </mat-form-field>
+      </div>
+      <button mat-raised-button class="search-button" (click)="onSearch()">
+        Search
+      </button>
+    </form>
+  </div>
+ <app-info-card [launchInfo]="launchData"></app-info-card>
+</div>

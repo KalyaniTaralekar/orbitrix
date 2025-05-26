@@ -1,0 +1,10 @@
+  <div class="info-card" *ngFor="let launchInfo of launchInfo?.results">
+    <img class="info-image" src="{{ launchInfo?.image }}" alt="" />
+    <div class="info">
+      <h3>Mission : {{ launchInfo?.mission?.name }}</h3>
+      <p>Status :{{ launchInfo?.status?.name }}</p>
+      <p>Launch Date:{{ launchInfo?.net }}</p>
+      <p>Rocket :{{ launchInfo?.rocket?.configuration?.full_name }}</p>
+      <p>Mission Description:{{ launchInfo?.mission?.description }}</p>
+    </div>
+  </div>

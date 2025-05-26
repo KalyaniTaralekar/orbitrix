@@ -1,0 +1,22 @@
+.info-card {
+  width: 60vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: 30px;
+  align-items: center;
+  background-color: rgba(192, 192, 192, 0.1);
+  border-radius: 10px;
+  gap: 10px;
+}
+.info-image {
+  width: 200px;
+  height: 200px;
+  margin: 20px;
+  object-fit: cover;
+}
+.info {
+  color: white;
+  font-size: 24px;
+  font-family: "Open Sans", sans-serif;
+}
